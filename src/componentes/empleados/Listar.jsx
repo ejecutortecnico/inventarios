@@ -6,7 +6,9 @@ export default function ListarEmpleados() {
     const [usuarios, setUsuarios] = useState([]);
 
     useEffect(() => {
-        api.get("/api/empleados")
+        api.get("/api/empleados", {
+            withCredentials: true
+        })
             .then(res => setUsuarios(res.data))
             .catch(err => console.error("Error:", err));
     }, []);

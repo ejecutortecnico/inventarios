@@ -7,7 +7,9 @@ export default function Login() {
 
     function ingresar(e) {
         e.preventDefault();
-        api.post("/auth/login", { usuario: usuario, password: password })
+        api.post("/auth/login", { usuario: usuario, password: password }, {
+            withCredentials: true
+        })
             .then(res => crearVar())
             .catch(err => console.error("Error:", err));
     }
